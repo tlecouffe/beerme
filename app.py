@@ -57,6 +57,8 @@ def local_css(file_name):
 local_css("style.css")
 
 
+
+
 # Function to display beer details
 def show_beer_details(beer_name):
     beer = beers_info[beer_name]
