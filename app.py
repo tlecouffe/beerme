@@ -67,17 +67,16 @@ def load_data(filename):
 beers_info = load_data('beers_info.json')
 flights = load_data('flights.json')
 
-
-# st.title("The Brewed Affair")
-# st.subheader("Beer Tasting Extravaganza")
-st.markdown("<h1 style='text-align: center; color: #456268;'>The Brewed Affair</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center; color: #789798;'>Beer Tasting Extravaganza</h3>", unsafe_allow_html=True)
-
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 local_css("style.css")
+
+# st.title("The Brewed Affair")
+# st.subheader("Beer Tasting Extravaganza")
+st.markdown("<h1 style='text-align: center; color: #456268;'>The Brewed Affair</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: #789798;'>Beer Tasting Extravaganza</h3>", unsafe_allow_html=True)
 
 # Function to display beer details
 def show_beer_details(beer_name):

@@ -1,16 +1,20 @@
-body {
+body, .stApp {
     font-family: 'Arial', sans-serif;
+    background-color: #f9cea4;  /* Light background */
+    color: #4a4a4a;             /* Dark text for contrast */
 }
-h1 {
-    color: #456268;
+h1, h2, h3 {
+    color: #6b705c;             /* Earthy tone for headers */
 }
-h3 {
-    color: #789798;
-}
+
 /* Custom styles for beer grid layout */
 .stButton > button {
     width: 100%;
     height: 50px; /* Adjust button height as needed */
+    background-color: #9b6a6c;  /* Warm tone for buttons */
+    color: white;
+    border-radius: 4px;
+    padding: 10px 24px;
 }
 .stMarkdown {
     text-align: center;
