@@ -5,7 +5,7 @@ beers_info = {
     "Beer 1": {
         "thumbnail": "images/beer 1.png",
         "primary_image": "images/beer 1.png",
-        "description": "Description for Beer 1."
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
     },
     "Beer 2": {
         "thumbnail": "images/beer 2.png",
@@ -62,7 +62,13 @@ local_css("style.css")
 # Function to display beer details
 def show_beer_details(beer_name):
     beer = beers_info[beer_name]
-    st.image(beer["primary_image"], width=300)  # Adjust width as needed for the primary image
+
+    # Create columns to center the image
+    col1, col2, col3 = st.columns([1,2,1])  # The middle column is where the image will be
+
+    with col2:  # Using the middle column to display the image
+        st.image(beer["primary_image"], width=300)  # Adjust width as needed for the primary image
+
     st.write(beer["description"])
 
 # Function to display the main selection page
