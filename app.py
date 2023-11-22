@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import json
 import sqlite3
 from datetime import datetime
 
@@ -58,56 +59,14 @@ username = get_user()
 if username is None:
     st.stop()
 
+# Function to load data from a JSON file
+def load_data(filename):
+    with open(filename, 'r') as file:
+        return json.load(file)
 
-# Data structure
-beers_info = {
-    "Beer 1": {
-        "thumbnail": "images/beer 1.png",
-        "primary_image": "images/beer 1.png",
-        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-    },
-    "Beer 2": {
-        "thumbnail": "images/beer 2.png",
-        "primary_image": "images/beer 2.png",
-        "description": "Description for Beer 2."
-    },
-    "Beer 3": {
-        "thumbnail": "images/beer 3.png",
-        "primary_image": "images/beer 3.png",
-        "description": "Description for Beer 3."
-    },
-    "Beer 4": {
-        "thumbnail": "images/beer 4.png",
-        "primary_image": "images/beer 4.png",
-        "description": "Description for Beer 4."
-    },
-    "Beer 5": {
-        "thumbnail": "images/beer 5.png",
-        "primary_image": "images/beer 5.png",
-        "description": "Description for Beer 5."
-    },
-    "Beer 6": {
-        "thumbnail": "images/beer 6.png",
-        "primary_image": "images/beer 6.png",
-        "description": "Description for Beer 6."
-    },
-    "Beer 7": {
-        "thumbnail": "images/beer 7.png",
-        "primary_image": "images/beer 7.png",
-        "description": "Description for Beer 7."
-    },
-    "Beer 8": {
-        "thumbnail": "images/beer 8.png",
-        "primary_image": "images/beer 8.png",
-        "description": "Description for Beer 8."
-    }
-}
+beers_info = load_data('beers_info.json')
+flights = load_data('flights.json')
 
-# Sample data structure for flights
-flights = {
-    "Flight 1: The Classics": ["Beer 1", "Beer 2", "Beer 3", "Beer 4"],
-    "Flight 2: Bold & Adventurous": ["Beer 5", "Beer 6", "Beer 7", "Beer 8"]
-}
 
 # st.title("The Brewed Affair")
 # st.subheader("Beer Tasting Extravaganza")
