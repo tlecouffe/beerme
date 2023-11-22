@@ -122,23 +122,20 @@ def save_uploaded_image(uploaded_image, beer_name):
 # Function to display the main selection page
 def show_main_page():
     for flight, beers in flights.items():
-        # Centered flight title with custom styling
         st.markdown(f"<h2 style='text-align: center; color: #456268;'>{flight}</h2>", unsafe_allow_html=True)
         
-        # Display beers in a grid layout
-        for i in range(0, len(beers), 2):  # Process in pairs for 2 rows and 2 columns layout
-            cols = st.columns(2)
+        for i in range(0, len(beers), 2):
+            cols = st.columns([1, 2, 1, 2, 1])  # Adding buffer columns for centering
             for j in range(2):
                 if i + j < len(beers):
                     beer = beers[i + j]
-                    with cols[j]:
+                    with cols[j * 2 + 1]:  # Use the middle column of the three for the image
                         st.image(beers_info[beer]["thumbnail"], width=112)
                         if st.button("Learn more", key=beer):
                             st.session_state.selected_beer = beer
                             st.rerun()
-        
-        # Horizontal line for separation between flights
         st.markdown("---")
+
 
 
 # Main app logic
