@@ -1,40 +1,40 @@
 {
-    "Something Something Pilsner": {
+    "Beer 1": {
     "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 1.jpg",
     "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 1.jpg",
     "description": "Malty Nationals Something Something Pilsner - A refreshing pilsner from the people that brought you a bunch of IPAs. 5%."
 },
-"Peach & Ginger Saison": {
+"Beer 2": {
     "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 2.jpg",
     "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 2.jpg",
     "description": "Vancouver Island Brewing - Total Series Ginger & Peach Saison 5.8%"
 },
-"Regina Honey Ale": {
+"Beer 3": {
     "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 3.png",
     "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 3.png",
     "description": "Regina Brewing - Honey Ale 4.8%"
 },
-"Mega Lazer Cat": {
+"Beer 4": {
     "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 4.jpg",
     "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 4.jpg",
     "description": "Rebellion Brewing Co - Mega Laser Cat Imperial Red Ale with Vanilla. 9%."
 },
-"Prickly Pear": {
+"Beer 5": {
     "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 5.jpg",
     "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 5.jpg",
     "description": "Regina Brewing - Prickly Pear. 5.2%"
 },
-"Scarth St Blonde": {
+"Beer 6": {
     "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 6.jpg",
     "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 6.jpg",
     "description": "Pile O Bones - Scarth St. Blonde."
 },
-"Amber Lager": {
+"Beer 7": {
     "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 7.jpg",
     "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 7.jpg",
     "description": "Banded Peak Brewing - Approach Amber Lager. 5.1%"
 },
-"Coffee Cake Stout": {
+"Beer 8": {
     "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 8.png",
     "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 8.png",
     "description": "Malty National - Coffee Cake Stout"

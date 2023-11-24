@@ -130,29 +130,6 @@ def save_uploaded_image(uploaded_image, beer_name):
         f.write(uploaded_image.getbuffer())
     return image_path
 
-# Function to display the main selection page
-def show_main_page():
-    # Button for Hot Dog Hall of Fame
-    if st.button('The Hot Dog Hall of Fame'):
-        st.session_state['page'] = 'hot_dog_hall_of_fame'
-        st.experimental_rerun()
-    
-    for flight, beers in flights.items():
-        st.markdown(f"<h2 style='text-align: center; color: #456268;'>{flight}</h2>", unsafe_allow_html=True)
-        
-        for i in range(0, len(beers), 2):
-            cols = st.columns(2)
-            for j in range(2):
-                if i + j < len(beers):
-                    beer = beers[i + j]
-                    with cols[j]:
-                        # Use markdown to render the image with centered alignment
-                        st.markdown(f"<img src='{beers_info[beer]['thumbnail']}' style='width: 112px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
-                        if st.button("Learn more", key=beer):
-                            st.session_state.selected_beer = beer
-                            st.rerun()
-        st.markdown("---")
-
 #Hot Dog Code
 def show_hot_dog_hall_of_fame():
     st.title("The Hot Dog Hall of Fame")
@@ -195,20 +172,45 @@ def get_hot_dog_details():
     return c.fetchall()
 
 
+# Function to display the main selection page
+def show_main_page():
+    if st.button('The Hot Dog Hall of Fame'):
+        st.session_state['page'] = 'hot_dog_hall_of_fame'
+        st.rerun()
+    
+    for flight, beers in flights.items():
+        st.markdown(f"<h2 style='text-align: center; color: #456268;'>{flight}</h2>", unsafe_allow_html=True)
+        
+        for i in range(0, len(beers), 2):
+            # Use an even number of columns for better centering
+            cols = st.columns([1, 2, 2, 1])
+            for j in range(2):
+                if i + j < len(beers):
+                    beer = beers[i + j]
+                    with cols[j + 1]:  # Center the image in one of the two middle columns
+                        st.image(beers_info[beer]["thumbnail"], width=112)
+                        if st.button("Learn more", key=beer):
+                            st.session_state['selected_beer'] = beer
+                            st.session_state['page'] = 'beer_details'
+                            st.rerun()
+        st.markdown("---")
+
+
+
 # Main app logic
-if 'page' in st.session_state:
+if 'selected_beer' in st.session_state and st.session_state['selected_beer']:
+    # Show details page for the selected beer
+    show_beer_details(st.session_state['selected_beer'])
+    if st.button("Back to Selection"):
+        st.session_state['selected_beer'] = None
+        st.session_state['page'] = 'main_page'
+        st.experimental_rerun()
+elif 'page' in st.session_state:
     if st.session_state['page'] == 'hot_dog_hall_of_fame':
         show_hot_dog_hall_of_fame()
-    elif st.session_state['page'] == 'main_page':
+    else:
         # Show the main selection page
         show_main_page()
-    elif 'selected_beer' in st.session_state and st.session_state.selected_beer:
-        # Show details page for the selected beer
-        show_beer_details(st.session_state.selected_beer)
-        if st.button("Back to Selection"):
-            st.session_state.selected_beer = None  # Reset the selected beer
-            st.session_state['page'] = 'main_page'
-            st.rerun()
 else:
     st.session_state['page'] = 'main_page'
     show_main_page()
