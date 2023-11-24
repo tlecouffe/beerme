@@ -1,42 +1,42 @@
 {
-    "Beer 1": {
-    "thumbnail": "images/beer 1.png",
-    "primary_image": "images/beer 1.png",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    "Something Something Pilsner": {
+    "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 1.jpg",
+    "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 1.jpg",
+    "description": "Malty Nationals Something Something Pilsner - A refreshing pilsner from the people that brought you a bunch of IPAs. 5%."
 },
-"Beer 2": {
-    "thumbnail": "images/beer 2.png",
-    "primary_image": "images/beer 2.png",
-    "description": "Description for Beer 2."
+"Peach & Ginger Saison": {
+    "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 2.jpg",
+    "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 2.jpg",
+    "description": "Vancouver Island Brewing - Total Series Ginger & Peach Saison 5.8%"
 },
-"Beer 3": {
-    "thumbnail": "images/beer 3.png",
-    "primary_image": "images/beer 3.png",
-    "description": "Description for Beer 3."
+"Regina Honey Ale": {
+    "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 3.png",
+    "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 3.png",
+    "description": "Regina Brewing - Honey Ale 4.8%"
 },
-"Beer 4": {
-    "thumbnail": "images/beer 4.png",
-    "primary_image": "images/beer 4.png",
-    "description": "Description for Beer 4."
+"Mega Lazer Cat": {
+    "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 4.jpg",
+    "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 4.jpg",
+    "description": "Rebellion Brewing Co - Mega Laser Cat Imperial Red Ale with Vanilla. 9%."
 },
-"Beer 5": {
-    "thumbnail": "images/beer 5.png",
-    "primary_image": "images/beer 5.png",
-    "description": "Description for Beer 5."
+"Prickly Pear": {
+    "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 5.jpg",
+    "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 5.jpg",
+    "description": "Regina Brewing - Prickly Pear. 5.2%"
 },
-"Beer 6": {
-    "thumbnail": "images/beer 6.png",
-    "primary_image": "images/beer 6.png",
-    "description": "Description for Beer 6."
+"Scarth St Blonde": {
+    "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 6.jpg",
+    "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 6.jpg",
+    "description": "Pile O Bones - Scarth St. Blonde."
 },
-"Beer 7": {
-    "thumbnail": "images/beer 7.png",
-    "primary_image": "images/beer 7.png",
-    "description": "Description for Beer 7."
+"Amber Lager": {
+    "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 7.jpg",
+    "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 7.jpg",
+    "description": "Banded Peak Brewing - Approach Amber Lager. 5.1%"
 },
-"Beer 8": {
-    "thumbnail": "images/beer 8.png",
-    "primary_image": "images/beer 8.png",
-    "description": "Description for Beer 8."
+"Coffee Cake Stout": {
+    "thumbnail": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 8.png",
+    "primary_image": "https://raw.githubusercontent.com/tlecouffe/beerme/main/images/beer 8.png",
+    "description": "Malty National - Coffee Cake Stout"
 }
 }

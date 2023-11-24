@@ -31,6 +31,17 @@ c.execute('''
 ''')
 conn.commit()
 
+# Create table for hot dogs
+c.execute('''
+    CREATE TABLE IF NOT EXISTS hotdogs (
+        username TEXT,
+        description TEXT,
+        timestamp DATETIME,
+        image_path TEXT
+    )
+''')
+conn.commit()
+
 def get_user():
     """Retrieve or register the user."""
     # Check if a username is in the query params
@@ -121,30 +132,83 @@ def save_uploaded_image(uploaded_image, beer_name):
 
 # Function to display the main selection page
 def show_main_page():
+    # Button for Hot Dog Hall of Fame
+    if st.button('The Hot Dog Hall of Fame'):
+        st.session_state['page'] = 'hot_dog_hall_of_fame'
+        st.experimental_rerun()
+    
     for flight, beers in flights.items():
         st.markdown(f"<h2 style='text-align: center; color: #456268;'>{flight}</h2>", unsafe_allow_html=True)
         
         for i in range(0, len(beers), 2):
-            cols = st.columns([1, 2, 1, 2, 1])  # Adding buffer columns for centering
+            cols = st.columns(2)
             for j in range(2):
                 if i + j < len(beers):
                     beer = beers[i + j]
-                    with cols[j * 2 + 1]:  # Use the middle column of the three for the image
-                        st.image(beers_info[beer]["thumbnail"], width=112)
+                    with cols[j]:
+                        # Use markdown to render the image with centered alignment
+                        st.markdown(f"<img src='{beers_info[beer]['thumbnail']}' style='width: 112px; display: block; margin-left: auto; margin-right: auto;'>", unsafe_allow_html=True)
                         if st.button("Learn more", key=beer):
                             st.session_state.selected_beer = beer
                             st.rerun()
         st.markdown("---")
 
+#Hot Dog Code
+def show_hot_dog_hall_of_fame():
+    st.title("The Hot Dog Hall of Fame")
+
+    # Button to return to the main page
+    if st.button("Back to Main Page"):
+        st.session_state['page'] = 'main_page'
+        st.rerun()    
+
+    # Input for hot dog description and image upload
+    with st.form(key='hot_dog_form'):
+        description = st.text_area("Brag about your hot dog creation!")
+        image = st.file_uploader("Upload a picture of your hot dog:", type=["jpg", "png"])
+        submit_button = st.form_submit_button(label='Post')
+
+    if submit_button:
+        # Save the description and image
+        timestamp = datetime.now()
+        image_path = None
+        if image is not None:
+            image_path = save_uploaded_image(image, 'hot_dog')
+        save_hot_dog_details(description, image_path, timestamp)
+        st.success("Your hot dog has been added to the Hall of Fame!")
+
+    # Display existing hot dog entries
+    for hot_dog in get_hot_dog_details():
+        username, description, timestamp, image_path = hot_dog
+        st.markdown(f"*{username} ({timestamp}):*")
+        st.text_area("", description, disabled=True)
+        if image_path:
+            st.image(image_path)
+
+def save_hot_dog_details(description, image_path, timestamp):
+    c.execute("INSERT INTO hotdogs (username, description, timestamp, image_path) VALUES (?, ?, ?, ?)",
+              (st.session_state['username'], description, timestamp, image_path))
+    conn.commit()
+
+def get_hot_dog_details():
+    c.execute("SELECT username, description, timestamp, image_path FROM hotdogs ORDER BY timestamp DESC")
+    return c.fetchall()
 
 
 # Main app logic
-if 'selected_beer' in st.session_state and st.session_state.selected_beer:
-    # Show details page for the selected beer
-    show_beer_details(st.session_state.selected_beer)
-    if st.button("Back to Selection"):
-        st.session_state.selected_beer = None  # Reset the selected beer
-        st.rerun()
+if 'page' in st.session_state:
+    if st.session_state['page'] == 'hot_dog_hall_of_fame':
+        show_hot_dog_hall_of_fame()
+    elif st.session_state['page'] == 'main_page':
+        # Show the main selection page
+        show_main_page()
+    elif 'selected_beer' in st.session_state and st.session_state.selected_beer:
+        # Show details page for the selected beer
+        show_beer_details(st.session_state.selected_beer)
+        if st.button("Back to Selection"):
+            st.session_state.selected_beer = None  # Reset the selected beer
+            st.session_state['page'] = 'main_page'
+            st.rerun()
 else:
-    # Show the main selection page
+    st.session_state['page'] = 'main_page'
     show_main_page()
